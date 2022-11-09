@@ -23,11 +23,6 @@ def select_all():
     return authors
 
 
-def delete_all():
-    sql = "DELETE FROM authors"
-    run_sql(sql)
-
-
 def select(id):
     user = None
     sql = "SELECT * FROM authors WHERE id = %s"
@@ -39,7 +34,17 @@ def select(id):
     return author
 
 
+def delete_all():
+    sql = "DELETE FROM authors"
+    run_sql(sql)
+
+
 def delete(id):
-    sql = "DELETE FROM author WHERE id = %s"
+    sql = "DELETE FROM authors WHERE id = %s"
     values = [id]
+    run_sql(sql, values)
+
+def update(author):
+    sql = "UPDATE authors SET (first_name, last_name) = (%s, %s) WHERE id = %s"
+    values = [author.first_name, author.last_name, author.id]
     run_sql(sql, values)

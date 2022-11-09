@@ -33,7 +33,7 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        author = author_repository.select(result['user_id'])
+        author = author_repository.select(result['author_id'])
         book = Book(result['title'], author, result['id'] )
     return book
 
@@ -46,4 +46,9 @@ def delete_all():
 def delete(id):
     sql = "DELETE FROM books WHERE id = %s"
     values = [id]
+    run_sql(sql, values)
+
+def update(book):
+    sql = "UPDATE books SET (title, author_id) = (%s, %s) WHERE id = %s"
+    values = [book.title, book.author.id, book.id]
     run_sql(sql, values)

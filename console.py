@@ -5,8 +5,8 @@ from models.author import Author
 import repositories.book_repository as book_repository
 import repositories.author_repository as author_repository
 
-author_repository.delete_all()
-book_repository.delete_all()
+# author_repository.delete_all()
+# book_repository.delete_all()
 
 author1 = Author("John", "Tolkien")
 book11 = Book("The Silmarillion", author1)
@@ -19,11 +19,20 @@ book22 = Book("Necronomicon", author2)
 author_repository.save(author1)
 author_repository.save(author2)
 
-print(author_repository.select_all())
+# # print(author_repository.select_all())
 
 book_repository.save(book11)
 book_repository.save(book12)
 book_repository.save(book21)
 book_repository.save(book22)
 
-print(book_repository.select_all())
+# print(book_repository.select_all())
+
+# print(author_repository.select(1))
+# print(book_repository.select(1))
+
+# book_repository.delete(1)
+# book_repository.delete(2)
+# author_repository.delete(1)
+
+# book_repository.update(book11)
