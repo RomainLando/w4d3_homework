@@ -4,7 +4,7 @@
 
 {% for book in all_books %}
     <p>
-        {{book.title}}, written by {{book.author.first_name}} {{book.author.last_name}}.
+        <a href="/books/{{book.id}}">{{book.title}}</a>, written by {{book.author.first_name}} {{book.author.last_name}}.
         <form class="delete-form" action="/books/{{book.id}}/delete" method="POST"> <!-- NEW -->
             <button class="trash-button">Delete</button> <!-- NEW -->
         </form>
