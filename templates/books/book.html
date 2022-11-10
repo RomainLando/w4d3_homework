@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
+<p>{{book.title}}, written by {{book.author.first_name}} {{book.author.last_name}}.</p>
 <p>
-    {{book.title}}, written by {{book.author.first_name}} {{book.author.last_name}}.
-    <form class="delete-form" action="/books/{{book.id}}/delete" method="POST"> <!-- NEW -->
-        <button class="trash-button">Delete</button> <!-- NEW -->
-    </form>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, vitae!
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, consectetur?
 </p>
+<form class="delete-form" action="/books/{{book.id}}/delete" method="POST"> <!-- NEW -->
+    <button class="trash-button">Delete</button> <!-- NEW -->
+</form>
 {% endblock %}
